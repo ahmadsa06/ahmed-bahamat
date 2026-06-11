@@ -1,0 +1,183 @@
+/* ============================================================
+   Ahmed Bahamat Portfolio — design tokens (source of truth)
+   Black + dark-blue duotone. No template green anywhere.
+   ============================================================ */
+
+:root {
+  /* Color */
+  --color-bg: #FFFFFF;
+  --color-surface: #F5F7FB;
+  --color-surface-2: #EEF2FA;
+  --color-ink: #0A0F1E;
+  --color-ink-soft: #1B2436;
+  --color-body: #525B6B;
+  --color-muted: #8A93A3;
+  --color-border: #E5EAF3;
+  --color-primary: #1B3A8B;
+  --color-primary-deep: #11245A;
+  --color-primary-lift: #3B6FE5;
+  --color-primary-050: #EAF0FF;
+  --color-on-primary: #FFFFFF;
+  --color-rating: #F5A623;
+  --color-focus: #3B6FE5;
+
+  /* Decoration dots */
+  --dot-navy: #1B3A8B;
+  --dot-blue: #3B6FE5;
+  --dot-black: #0A0F1E;
+  --dot-soft: #C8D4EC;
+
+  /* Type */
+  --font: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --text-hero: clamp(2.6rem, 1.4rem + 4vw, 4.5rem);   /* ~72px */
+  --text-h2: clamp(1.9rem, 1.2rem + 2.4vw, 3rem);     /* ~48px */
+  --text-h3: 1.375rem;                                 /* 22px */
+  --text-stat: clamp(2.4rem, 1.6rem + 2.6vw, 3.5rem); /* ~56px */
+  --text-lg: 1.125rem;                                 /* 18px */
+  --text-base: 1rem;                                   /* 16px */
+  --text-sm: 0.875rem;                                 /* 14px */
+
+  /* Shape & depth */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-soft: 0 6px 20px rgba(10, 15, 30, 0.05);
+  --shadow-card: 0 14px 40px rgba(10, 15, 30, 0.08);
+  --shadow-focus: 0 0 0 4px rgba(59, 111, 229, 0.28);
+
+  /* Layout */
+  --container: 1200px;
+  --gutter: 24px;
+  --section-y: 120px;
+  --section-y-sm: 64px;
+}
+
+/* ---------- Reset / base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  color: var(--color-body);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+ul { list-style: none; padding: 0; }
+h1, h2, h3 { color: var(--color-ink); line-height: 1.2; font-weight: 700; text-wrap: balance; }
+
+:focus-visible {
+  outline: none;
+  box-shadow: var(--shadow-focus);
+  border-radius: var(--radius-sm);
+}
+
+::selection { background: var(--color-primary); color: #fff; }
+
+.lucide { width: 24px; height: 24px; flex: none; display: inline-block; vertical-align: middle; }
+
+/* ---------- Layout helpers ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section { padding-block: var(--section-y); position: relative; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  background: var(--color-primary-050);
+  padding: 6px 16px;
+  border-radius: 999px;
+}
+.eyebrow::before {
+  content: "";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}
+
+.section-head { max-width: 640px; }
+.section-head.center { margin-inline: auto; text-align: center; }
+.section-title {
+  font-size: var(--text-h2);
+  margin-top: 18px;
+  letter-spacing: -0.01em;
+}
+.section-title .hl { color: var(--color-primary); }
+.section-lead {
+  font-size: var(--text-lg);
+  margin-top: 18px;
+  color: var(--color-body);
+  text-wrap: pretty;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-size: var(--text-base);
+  font-weight: 600;
+  padding: 14px 28px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid transparent;
+  transition: background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+}
+.btn:active { transform: translateY(1px); }
+.btn .lucide { width: 18px; height: 18px; }
+
+.btn-primary { background: var(--color-primary); color: var(--color-on-primary); }
+.btn-primary:hover { background: var(--color-primary-deep); }
+
+.btn-outline { border-color: var(--color-primary); color: var(--color-primary); background: transparent; }
+.btn-outline:hover { background: var(--color-primary); color: var(--color-on-primary); }
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 600;
+  color: var(--color-ink);
+  transition: color .18s ease;
+}
+.link-arrow .lucide { width: 18px; height: 18px; color: var(--color-primary); transition: color .18s ease, transform .18s ease; }
+.link-arrow:hover { color: var(--color-primary-lift); }
+.link-arrow:hover .lucide { color: var(--color-primary-lift); transform: translate(2px, -2px); }
+
+/* ---------- Decoration ---------- */
+.dot-scatter, .dot-grid { position: absolute; pointer-events: none; z-index: 0; }
+.dot-grid {
+  width: 132px; height: 132px;
+  background-image: radial-gradient(var(--dot-soft) 2px, transparent 2.4px);
+  background-size: 22px 22px;
+  opacity: .9;
+}
+.confetti { position: absolute; border-radius: 50%; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+/* ---------- Responsive section rhythm ---------- */
+@media (max-width: 720px) {
+  .section { padding-block: var(--section-y-sm); }
+}
