@@ -91,16 +91,42 @@
   }
   .intro-cta .btn { padding: 16px 34px; font-size: 1.0625rem; }
   .product-panel {
-    margin: 40px auto 0;
+    margin: 34px auto 0;
+    width: 100%;
   }
   .product-heading {
     color: var(--color-ink);
-    font-size: var(--text-h3);
-    font-weight: 700;
+    font-size: clamp(1.7rem, 1.2rem + 1.8vw, 2.6rem);
+    font-weight: 800;
     line-height: 1.2;
   }
   .product-actions {
-    margin-top: 16px;
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+    margin: 28px auto 0;
+    max-width: 100%;
+  }
+  .product-actions .btn {
+    min-height: 76px;
+    padding: 18px 28px;
+    font-size: clamp(1rem, .9rem + .45vw, 1.35rem);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .product-button {
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .product-button[aria-disabled="true"] {
+    cursor: default;
+  }
+  .product-button[aria-disabled="true"]:hover {
+    background: transparent;
+    color: var(--color-primary);
+  }
+  .support-actions {
+    margin-top: 34px;
   }
 
   .intro-foot {
@@ -116,6 +142,8 @@
     .video-frame::after { transform: translate(12px, 12px); }
     .intro-cta { gap: 12px; }
     .intro-cta .btn { width: 100%; }
+    .product-actions { grid-template-columns: 1fr; }
+    .product-actions .btn { min-height: 64px; white-space: normal; }
   }
 </style>
 </head>
@@ -134,10 +162,45 @@
       <h1 class="intro-title">A quick <span class="hl">introduction</span> — then dive in.</h1>
       <p class="intro-sub">Technical product manager &amp; AI-native builder. Watch the short video below, then open my CV or explore the full portfolio.</p>
 
-      <div class="video-figure" id="kpis-tools">
+      <div class="product-panel" aria-labelledby="products-heading">
+        <h2 class="product-heading" id="products-heading">Show my products</h2>
+        <div class="product-actions" role="group" aria-label="Product videos">
+          <button
+            class="btn btn-primary product-button"
+            type="button"
+            data-video-id="PbIl9tKh89o"
+            data-youtube-url="https://youtu.be/PbIl9tKh89o"
+            aria-pressed="true">
+            <i data-lucide="layout-grid"></i>My Portofolio
+          </button>
+          <button
+            class="btn btn-outline product-button"
+            type="button"
+            data-video-id=""
+            data-youtube-url=""
+            aria-disabled="true"
+            aria-pressed="false"
+            title="YouTube link will be added later">
+            <i data-lucide="bar-chart-3"></i>KPIs tools
+          </button>
+          <button
+            class="btn btn-outline product-button"
+            type="button"
+            data-video-id=""
+            data-youtube-url=""
+            aria-disabled="true"
+            aria-pressed="false"
+            title="YouTube link will be added later">
+            <i data-lucide="list-checks"></i>Review all my products
+          </button>
+        </div>
+      </div>
+
+      <div class="video-figure" id="product-video">
         <div class="video-frame">
           <!-- ▶ Replace VIDEO_ID below with your YouTube video ID -->
           <iframe
+            id="intro-video"
             src="https://www.youtube-nocookie.com/embed/PbIl9tKh89o?rel=0&modestbranding=1"
             title="Ahmed Bahamat — introduction video"
             loading="lazy"
@@ -147,19 +210,13 @@
         </div>
       </div>
 
-      <div class="product-panel" aria-labelledby="products-heading">
-        <h2 class="product-heading" id="products-heading">Show my products</h2>
-        <div class="intro-cta product-actions">
-          <a class="btn btn-outline" href="../index.html">
-            <i data-lucide="layout-grid"></i>My Portofolio
-          </a>
-          <a class="btn btn-primary" href="#kpis-tools">
-            <i data-lucide="bar-chart-3"></i>KPIs tools
-          </a>
-          <a class="btn btn-outline" href="../index.html#portfolio">
-            <i data-lucide="list-checks"></i>Review all my products
-          </a>
-        </div>
+      <div class="intro-cta support-actions">
+        <a class="btn btn-primary" href="../files/Ahmed-Bahamat-CV.docx" download>
+          <i data-lucide="download"></i>My CV
+        </a>
+        <a class="btn btn-outline" href="../index.html">
+          <i data-lucide="layout-grid"></i>Portfolio
+        </a>
       </div>
     </div>
   </main>
@@ -191,6 +248,25 @@
       svg.setAttribute("aria-hidden", "true");
       svg.innerHTML = inner;
       el.replaceWith(svg);
+    });
+
+    var video = document.getElementById("intro-video");
+    var productButtons = document.querySelectorAll(".product-button");
+    productButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var videoId = button.getAttribute("data-video-id");
+        if (!video || !videoId) return;
+
+        video.src = "https://www.youtube-nocookie.com/embed/" + videoId + "?rel=0&modestbranding=1";
+        productButtons.forEach(function (item) {
+          item.classList.remove("btn-primary");
+          item.classList.add("btn-outline");
+          item.setAttribute("aria-pressed", "false");
+        });
+        button.classList.remove("btn-outline");
+        button.classList.add("btn-primary");
+        button.setAttribute("aria-pressed", "true");
+      });
     });
   })();
 </script>
