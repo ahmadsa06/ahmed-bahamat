@@ -90,6 +90,18 @@
     margin-top: 40px;
   }
   .intro-cta .btn { padding: 16px 34px; font-size: 1.0625rem; }
+  .product-panel {
+    margin: 40px auto 0;
+  }
+  .product-heading {
+    color: var(--color-ink);
+    font-size: var(--text-h3);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .product-actions {
+    margin-top: 16px;
+  }
 
   .intro-foot {
     text-align: center;
@@ -122,7 +134,7 @@
       <h1 class="intro-title">A quick <span class="hl">introduction</span> — then dive in.</h1>
       <p class="intro-sub">Technical product manager &amp; AI-native builder. Watch the short video below, then open my CV or explore the full portfolio.</p>
 
-      <div class="video-figure">
+      <div class="video-figure" id="kpis-tools">
         <div class="video-frame">
           <!-- ▶ Replace VIDEO_ID below with your YouTube video ID -->
           <iframe
@@ -135,13 +147,19 @@
         </div>
       </div>
 
-      <div class="intro-cta">
-        <a class="btn btn-primary" href="../files/Ahmed-Bahamat-CV.docx" download>
-          <i data-lucide="download"></i>CV
-        </a>
-        <a class="btn btn-outline" href="../index.html">
-          <i data-lucide="layout-grid"></i>My Portfolio
-        </a>
+      <div class="product-panel" aria-labelledby="products-heading">
+        <h2 class="product-heading" id="products-heading">Show my products</h2>
+        <div class="intro-cta product-actions">
+          <a class="btn btn-outline" href="../index.html">
+            <i data-lucide="layout-grid"></i>My Portofolio
+          </a>
+          <a class="btn btn-primary" href="#kpis-tools">
+            <i data-lucide="bar-chart-3"></i>KPIs tools
+          </a>
+          <a class="btn btn-outline" href="../index.html#portfolio">
+            <i data-lucide="list-checks"></i>Review all my products
+          </a>
+        </div>
       </div>
     </div>
   </main>
@@ -155,7 +173,9 @@
   (function () {
     var ICONS = {
       "download": '<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>',
-      "layout-grid": '<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>'
+      "layout-grid": '<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>',
+      "bar-chart-3": '<path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/>',
+      "list-checks": '<path d="m3 7 2 2 4-4"/><path d="m3 17 2 2 4-4"/><path d="M13 6h8"/><path d="M13 12h8"/><path d="M13 18h8"/>'
     };
     document.querySelectorAll("i[data-lucide]").forEach(function (el) {
       var inner = ICONS[el.getAttribute("data-lucide")];
