@@ -133,7 +133,13 @@
 @media (max-width: 720px) {
   .stats-inner { grid-template-columns: 1fr; }
   .stat + .stat { border-left: none; border-top: 1px solid var(--color-border); }
-  .stat { padding: 28px 28px; }
+  .stat { padding: 20px 22px; }
+  .stat-num { font-size: clamp(2rem, 9.5vw, 2.75rem); }
+  .stat-label { font-size: .95rem; line-height: 1.45; margin-top: 6px; }
+}
+@media (max-width: 420px) {
+  .stat { padding: 18px 20px; }
+  .stat-num { font-size: clamp(1.85rem, 9vw, 2.35rem); }
 }
 
 /* ---------------- Skills ---------------- */
@@ -220,6 +226,22 @@
 .work-meta .row { display: flex; gap: 8px; font-size: var(--text-sm); line-height: 1.5; }
 .work-meta .k { color: var(--color-primary); font-weight: 600; flex: none; }
 .work-meta .v { color: var(--color-body); }
+.project-link {
+  align-items: center;
+  align-self: flex-start;
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  color: var(--color-primary);
+  display: inline-flex;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  gap: 7px;
+  margin-top: 22px;
+  padding: 9px 14px;
+  transition: background .18s ease, color .18s ease, transform .18s ease;
+}
+.project-link:hover { background: var(--color-primary); color: var(--color-on-primary); transform: translateY(-1px); }
+.project-link .lucide { height: 16px; width: 16px; }
 @media (max-width: 920px) { .work-grid { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 620px) { .work-grid { grid-template-columns: 1fr; } }
 
@@ -243,7 +265,29 @@
 .more-item .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--color-primary); margin-top: 9px; flex: none; }
 .more-item strong { color: var(--color-ink); font-weight: 600; }
 .more-item span { color: var(--color-body); }
-@media (max-width: 620px) { .more-list { grid-template-columns: 1fr; } }
+.more-copy { flex: 1; min-width: 0; }
+.mini-link {
+  align-items: center;
+  border: 1px solid var(--color-primary);
+  border-radius: 999px;
+  color: var(--color-primary);
+  display: inline-flex;
+  flex: none;
+  font-size: .78rem;
+  font-weight: 700;
+  gap: 4px;
+  line-height: 1;
+  margin-top: 2px;
+  padding: 7px 10px;
+  transition: background .18s ease, color .18s ease;
+}
+.mini-link:hover { background: var(--color-primary); color: var(--color-on-primary); }
+.mini-link .lucide { height: 13px; width: 13px; }
+@media (max-width: 620px) {
+  .more-list { grid-template-columns: 1fr; }
+  .more-item { gap: 10px; padding: 16px; }
+  .mini-link { padding: 7px 9px; }
+}
 
 /* ---------------- Contact ---------------- */
 .contact-grid {
