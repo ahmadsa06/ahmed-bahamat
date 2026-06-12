@@ -91,7 +91,11 @@ h1, h2, h3 { color: var(--color-ink); line-height: 1.2; font-weight: 700; text-w
   padding-inline: var(--gutter);
 }
 
-.section { padding-block: var(--section-y); position: relative; }
+.section {
+  overflow-x: hidden;
+  padding-block: var(--section-y);
+  position: relative;
+}
 
 .eyebrow {
   display: inline-flex;
