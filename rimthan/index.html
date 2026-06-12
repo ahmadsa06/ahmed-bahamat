@@ -106,13 +106,19 @@
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
     margin: 28px auto 0;
     max-width: 100%;
+    width: 100%;
   }
   .product-actions .btn {
+    max-width: 100%;
     min-height: 76px;
+    min-width: 0;
     padding: 18px 28px;
     font-size: clamp(1rem, .9rem + .45vw, 1.35rem);
     font-weight: 700;
+    overflow-wrap: anywhere;
+    text-align: center;
     white-space: nowrap;
+    width: 100%;
   }
   .product-button {
     cursor: pointer;
