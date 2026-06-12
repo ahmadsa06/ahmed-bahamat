@@ -142,8 +142,22 @@
     .video-frame::after { transform: translate(12px, 12px); }
     .intro-cta { gap: 12px; }
     .intro-cta .btn { width: 100%; }
-    .product-actions { grid-template-columns: 1fr; }
-    .product-actions .btn { min-height: 64px; white-space: normal; }
+    .product-actions {
+      gap: 8px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .product-actions .btn {
+      gap: 5px;
+      min-height: 58px;
+      padding: 9px 6px;
+      font-size: clamp(.68rem, 2.6vw, .8rem);
+      line-height: 1.15;
+      white-space: normal;
+    }
+    .product-actions .lucide {
+      height: 14px;
+      width: 14px;
+    }
   }
 </style>
 </head>
