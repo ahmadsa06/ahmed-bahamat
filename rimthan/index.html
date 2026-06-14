@@ -20,6 +20,38 @@
     overflow: hidden;
     position: relative;
   }
+
+  /* Top brand bar — Rimthan logo (left) + Ahmed Bahamat (right) */
+  .intro-head {
+    width: 100%;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg);
+    position: relative;
+    z-index: 2;
+  }
+  .intro-head-inner {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px var(--gutter);
+  }
+  .intro-logo {
+    display: block;
+    height: 32px;
+    width: auto;
+    border-radius: 6px;
+  }
+  .intro-by {
+    font-weight: 600;
+    font-size: var(--text-sm);
+    letter-spacing: -0.01em;
+    color: var(--color-ink-soft);
+    white-space: nowrap;
+  }
   .intro-main {
     flex: 1;
     display: grid;
@@ -145,6 +177,8 @@
   .intro-foot a:hover { color: var(--color-primary); }
 
   @media (max-width: 560px) {
+    .intro-head-inner { padding: 12px var(--gutter); }
+    .intro-logo { height: 26px; }
     .video-frame::after { transform: translate(12px, 12px); }
     .intro-cta { gap: 12px; }
     .intro-cta .btn { width: 100%; }
@@ -169,6 +203,14 @@
 </head>
 <body>
 <div class="intro-page">
+
+  <!-- Top brand bar: prepared by Ahmed Bahamat for Rimthan -->
+  <header class="intro-head">
+    <div class="intro-head-inner">
+      <img class="intro-logo" src="rimthan-logo.png" alt="Rimthan" width="760" height="162" />
+      <span class="intro-by">Ahmed Bahamat</span>
+    </div>
+  </header>
 
   <!-- Decorative dots, same vocabulary as main page -->
   <span class="dot-grid" aria-hidden="true" style="top:80px; left:-44px;"></span>
