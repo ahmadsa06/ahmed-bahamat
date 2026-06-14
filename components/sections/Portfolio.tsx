@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { site } from "@/content/site";
+import Button from "@/components/ui/Button";
 import OutlineButton from "@/components/ui/OutlineButton";
 import ArrowLink from "@/components/ui/ArrowLink";
 import Pill from "@/components/ui/Pill";
@@ -10,7 +11,7 @@ import Highlight from "@/components/ui/Highlight";
 import Reveal from "@/components/ui/Reveal";
 
 /** Short uppercase tag per featured card (matches the prototype's thumb tags). */
-const TAGS = ["Operations ERP", "Marketplace", "AI Agent"];
+const TAGS = ["Operations ERP", "Marketplace", "EdTech"];
 
 export default function Portfolio() {
   const { portfolio } = site;
@@ -65,6 +66,17 @@ export default function Portfolio() {
                     </div>
                   )}
                 </div>
+                {p.href && (
+                  <Button
+                    href={p.href}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="mt-6 self-start"
+                  >
+                    Visit site
+                    <ArrowUpRight className="h-[18px] w-[18px]" aria-hidden />
+                  </Button>
+                )}
               </div>
             </Reveal>
           ))}
@@ -76,12 +88,27 @@ export default function Portfolio() {
               {portfolio.more.map((m) => (
                 <li
                   key={m.title}
-                  className="flex items-start gap-3.5 rounded-md border border-border bg-surface px-5 py-[18px]"
+                  className="flex items-center gap-3.5 rounded-md border border-border bg-surface px-5 py-[18px]"
                 >
-                  <span aria-hidden className="mt-[9px] h-2 w-2 flex-none rounded-full bg-primary" />
-                  <span className="text-body">
+                  <span aria-hidden className="h-2 w-2 flex-none rounded-full bg-primary" />
+                  <span className="flex-1 text-body">
                     <strong className="font-semibold text-ink">{m.title}</strong> — {m.blurb}
                   </span>
+                  {m.href && (
+                    <a
+                      href={m.href}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      aria-label={`Visit ${m.title}`}
+                      className="group inline-flex flex-none items-center gap-1 rounded-pill border border-primary px-3 py-1 text-xs font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-fg"
+                    >
+                      Visit
+                      <ArrowUpRight
+                        className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        aria-hidden
+                      />
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
