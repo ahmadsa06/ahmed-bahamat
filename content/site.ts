@@ -210,7 +210,6 @@ export const site = {
     ] as Project[],
     more: [
       { title: "AI telesales assistant", blurb: "Real-time call scripting and CRM workflow concept.", href: "https://telesales.ahmedbahamat.com" },
-      { title: "Rasad Time", blurb: "Remote attendance product idea without geo/IP/face-scan constraints.", href: "https://rasd.ahmedbahamat.com" },
       { title: "Clubs Platform", blurb: "Kids'-club SaaS with parent progress tracking.", href: "https://kids.ahmedbahamat.com" },
       { title: "Marj3", blurb: "Spaced-repetition learning product for multi-disciplinary professionals.", href: "https://marj3.ahmedbahamat.com" },
       { title: "Alsawi", blurb: "Trainer-student course platform; beta context documented." },
