@@ -212,7 +212,7 @@ export const site = {
       { title: "AI telesales assistant", blurb: "Real-time call scripting and CRM workflow concept.", href: "https://telesales.ahmedbahamat.com" },
       { title: "Clubs Platform", blurb: "Kids'-club SaaS with parent progress tracking.", href: "https://kids.ahmedbahamat.com" },
       { title: "Marj3", blurb: "Spaced-repetition learning product for multi-disciplinary professionals.", href: "https://marj3.ahmedbahamat.com" },
-      { title: "Alsawi", blurb: "Trainer-student course platform; beta context documented." },
+      { title: "Alsawi", blurb: "Trainer-student course platform; beta context documented.", href: "https://academy.ahmedbahamat.com/" },
       { title: "Earab", blurb: "Leveled Arabic-grammar learning product.", href: "https://earab.net" },
       { title: "Tarsya landing page", blurb: "Marketing site for tender automation positioning.", href: "https://tarsya.net" },
     ] as Project[],
