@@ -10,9 +10,6 @@ import Pill from "@/components/ui/Pill";
 import Highlight from "@/components/ui/Highlight";
 import Reveal from "@/components/ui/Reveal";
 
-/** Short uppercase tag per featured card (matches the prototype's thumb tags). */
-const TAGS = ["Operations ERP", "Marketplace", "EdTech"];
-
 export default function Portfolio() {
   const { portfolio } = site;
   const [showMore, setShowMore] = useState(false);
@@ -31,7 +28,7 @@ export default function Portfolio() {
         </Reveal>
 
         <div className="mt-14 grid gap-[26px] md:grid-cols-2 lg:grid-cols-3">
-          {portfolio.featured.map((p, i) => (
+          {portfolio.featured.map((p) => (
             <Reveal
               key={p.title}
               as="article"
@@ -45,7 +42,7 @@ export default function Portfolio() {
                 }}
               >
                 <span className="absolute left-4 top-4 rounded-pill border border-border bg-white/90 px-[11px] py-[5px] text-xs font-semibold uppercase tracking-wider text-primary">
-                  {TAGS[i] ?? "Project"}
+                  {p.tags?.[0] ?? "Project"}
                 </span>
                 <span className="rounded-md bg-white/70 px-2.5 py-1 font-mono text-xs text-muted">project shot</span>
               </div>
@@ -66,6 +63,18 @@ export default function Portfolio() {
                     </div>
                   )}
                 </div>
+                {p.tags && p.tags.length > 0 && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {p.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-pill border border-border bg-surface px-2.5 py-1 text-xs font-semibold text-primary"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
                 {p.href && (
                   <Button
                     href={p.href}
@@ -92,7 +101,7 @@ export default function Portfolio() {
                 >
                   <span aria-hidden className="h-2 w-2 flex-none rounded-full bg-primary" />
                   <span className="flex-1 text-body">
-                    <strong className="font-semibold text-ink">{m.title}</strong> — {m.blurb}
+                    <strong className="font-semibold text-ink">{m.title}</strong> - {m.blurb}
                   </span>
                   {m.href && (
                     <a

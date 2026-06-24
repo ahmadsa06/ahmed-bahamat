@@ -1,4 +1,4 @@
-import { Handshake, Repeat, WandSparkles, Terminal, Rocket } from "lucide-react";
+import { BriefcaseBusiness, Repeat, WandSparkles, Terminal, Rocket } from "lucide-react";
 import { site, type SkillIcon } from "@/content/site";
 import Button from "@/components/ui/Button";
 import Pill from "@/components/ui/Pill";
@@ -27,7 +27,7 @@ export default function Skills() {
           </h2>
           <p className="mt-[18px] text-lead text-body [text-wrap:pretty]">{skills.lead}</p>
           <Button href={skills.cta.href} className="mt-[30px]">
-            <Handshake className="h-[18px] w-[18px]" aria-hidden />
+            <BriefcaseBusiness className="h-[18px] w-[18px]" aria-hidden />
             {skills.cta.label}
           </Button>
         </Reveal>
@@ -54,3 +54,4 @@ export default function Skills() {
     </section>
   );
 }
+

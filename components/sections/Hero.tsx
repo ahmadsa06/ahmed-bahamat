@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { MessageCircle } from "lucide-react";
+import { BriefcaseBusiness } from "lucide-react";
 import { site } from "@/content/site";
 import Button from "@/components/ui/Button";
 import ArrowLink from "@/components/ui/ArrowLink";
@@ -24,11 +24,12 @@ export default function Hero() {
           <h1 id="heroTitle" className="mt-[22px] text-hero font-bold -tracking-[0.025em] text-ink">
             <Highlight {...hero.title} />
           </h1>
-          <p className="mt-6 max-w-[30em] text-lead text-body [text-wrap:pretty]">{hero.sub}</p>
+          <p className="mt-4 text-base font-semibold text-primary">{hero.subtitle}</p>
+          <p className="mt-5 max-w-[34em] text-lead text-body [text-wrap:pretty]">{hero.sub}</p>
 
           <div className="mt-9 flex flex-wrap gap-4">
             <Button href={hero.primaryCta.href}>
-              <MessageCircle className="h-[18px] w-[18px]" aria-hidden />
+              <BriefcaseBusiness className="h-[18px] w-[18px]" aria-hidden />
               {hero.primaryCta.label}
             </Button>
             <ArrowLink href={hero.secondaryCta.href}>{hero.secondaryCta.label}</ArrowLink>
@@ -41,7 +42,7 @@ export default function Hero() {
         </Reveal>
 
         <Reveal className="order-1 justify-self-center lg:order-2">
-          {/* Signature offset square ink-outline frame on a primary fill — radius 0, kept square. */}
+          {/* Signature offset square ink-outline frame on a primary fill - radius 0, kept square. */}
           <div className="relative z-[1] aspect-[5/6] w-[min(420px,78vw)] bg-primary">
             <span
               aria-hidden

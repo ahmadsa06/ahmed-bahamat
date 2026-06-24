@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
+import { Download, Phone, Mail, MapPin, Send } from "lucide-react";
 import { site, type ContactKind } from "@/content/site";
 import Button from "@/components/ui/Button";
+import ArrowLink from "@/components/ui/ArrowLink";
 import IconChip from "@/components/ui/IconChip";
 import Input from "@/components/ui/Input";
 import Pill from "@/components/ui/Pill";
@@ -17,7 +18,7 @@ const INFO_ICON: Record<ContactKind, typeof Phone> = {
 };
 
 const EMAIL = site.contact.info.find((i) => i.kind === "email")?.value ?? "";
-const initial = { name: "", email: "", phone: "", budget: "", message: "" };
+const initial = { name: "", email: "", phone: "", opportunityType: "", message: "" };
 
 export default function Contact() {
   const { contact } = site;
@@ -30,10 +31,10 @@ export default function Contact() {
     setValues((v) => ({ ...v, [e.target.name]: e.target.value }));
 
   const mailtoFallback = () => {
-    const subject = `New project enquiry — ${values.name || "Website"}`;
+    const subject = `Product role or collaboration enquiry - ${values.name || "Website"}`;
     const body =
       `Name: ${values.name}\nEmail: ${values.email}\nPhone: ${values.phone}\n` +
-      `Budget: ${values.budget}\n\n${values.message}`;
+      `Context / Opportunity Type: ${values.opportunityType}\n\n${values.message}`;
     window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
@@ -63,22 +64,37 @@ export default function Contact() {
 
   const note =
     status === "sent"
-      ? "Thanks — your message is on its way. I'll reply shortly."
+      ? "Thanks - your message is on its way. I'll reply shortly."
       : status === "error"
         ? `Something went wrong. Please email ${EMAIL} directly.`
         : usesFormspree
-          ? "Sent straight to my inbox — I usually reply within a day."
+          ? "Sent straight to my inbox - I usually reply within a day."
           : `Opens your email app, pre-filled to ${EMAIL}.`;
 
   return (
     <section id="contact" aria-labelledby="contactTitle" className="relative py-section max-md:py-section-sm">
       <span aria-hidden className="absolute left-[8%] top-20 h-[9px] w-[9px] rounded-full bg-dot-blue" />
       <div className="container mx-auto px-gutter">
-        <Reveal className="max-w-[640px]">
+        <Reveal className="max-w-[720px]">
           <Pill>{contact.eyebrow}</Pill>
           <h2 id="contactTitle" className="mt-[18px] text-h2 font-bold -tracking-[0.01em]">
             <Highlight {...contact.title} />
           </h2>
+          <p className="mt-[18px] text-lead text-body [text-wrap:pretty]">{contact.lead}</p>
+          <div className="mt-[30px] flex flex-wrap items-center gap-4">
+            {contact.actions.map((action) =>
+              action.kind === "cv" ? (
+                <Button key={action.label} href={action.href} download>
+                  <Download className="h-[18px] w-[18px]" aria-hidden />
+                  {action.label}
+                </Button>
+              ) : (
+                <ArrowLink key={action.label} href={action.href}>
+                  {action.label}
+                </ArrowLink>
+              ),
+            )}
+          </div>
         </Reveal>
 
         <div className="mt-14 grid items-start gap-14 lg:grid-cols-[0.85fr_1.15fr]">
@@ -126,7 +142,7 @@ export default function Contact() {
             <div className="flex flex-wrap items-center gap-4 sm:col-span-2">
               <Button type="submit" disabled={status === "sending"}>
                 <Send className="h-[18px] w-[18px]" aria-hidden />
-                {status === "sending" ? "Sending…" : contact.submitLabel}
+                {status === "sending" ? "Sending..." : contact.submitLabel}
               </Button>
               <span
                 className={`text-sm ${status === "error" ? "text-primary" : "text-muted"}`}

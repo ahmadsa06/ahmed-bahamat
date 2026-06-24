@@ -5,7 +5,7 @@ import { Download, Menu, X } from "lucide-react";
 import { site } from "@/content/site";
 import Button from "@/components/ui/Button";
 
-/** Sticky nav — white, gains a hairline bottom border + soft shadow on scroll.
+/** Sticky nav - white, gains a hairline bottom border + soft shadow on scroll.
  *  Mobile: links collapse behind a toggle. */
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -25,7 +25,7 @@ export default function Nav() {
       }`}
     >
       <div className="container mx-auto flex h-[76px] items-center justify-between px-gutter">
-        <a href="#top" aria-label={`${site.brand.name} — home`} className="inline-flex items-center gap-3 font-semibold text-ink">
+        <a href="#top" aria-label={`${site.brand.name} - home`} className="inline-flex items-center gap-3 font-semibold text-ink">
           <span
             aria-hidden
             className="grid h-[38px] w-[38px] place-items-center rounded-[10px] bg-primary text-base font-bold tracking-tight text-primary-fg"
@@ -35,7 +35,7 @@ export default function Nav() {
           <span className="text-[1.0625rem] tracking-tight">{site.brand.name}</span>
         </a>
 
-        <nav aria-label="Primary" className="hidden items-center gap-[34px] md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-[34px] lg:flex">
           {site.nav.links.map((l) => (
             <a key={l.href} href={l.href} className="font-medium text-ink-soft transition-colors hover:text-primary">
               {l.label}
@@ -46,7 +46,7 @@ export default function Nav() {
         <div className="flex items-center gap-4">
           <Button href={site.nav.cta.href} download>
             <Download className="h-[18px] w-[18px]" aria-hidden />
-            <span className="max-md:hidden">{site.nav.cta.label}</span>
+            <span className="max-lg:hidden">{site.nav.cta.label}</span>
           </Button>
           <button
             type="button"
@@ -54,7 +54,7 @@ export default function Nav() {
             aria-expanded={open}
             aria-controls="navLinks"
             onClick={() => setOpen((v) => !v)}
-            className="grid place-items-center p-1.5 text-ink md:hidden"
+            className="grid place-items-center p-1.5 text-ink lg:hidden"
           >
             {open ? <X className="h-6 w-6" aria-hidden /> : <Menu className="h-6 w-6" aria-hidden />}
           </button>
@@ -65,7 +65,7 @@ export default function Nav() {
         <nav
           id="navLinks"
           aria-label="Primary mobile"
-          className="absolute inset-x-0 top-[76px] flex flex-col items-start gap-4 border-b border-border bg-white px-gutter pb-6 pt-[18px] shadow-card md:hidden"
+          className="absolute inset-x-0 top-[76px] flex flex-col items-start gap-4 border-b border-border bg-white px-gutter pb-6 pt-[18px] shadow-card lg:hidden"
         >
           {site.nav.links.map((l) => (
             <a
@@ -82,3 +82,4 @@ export default function Nav() {
     </header>
   );
 }
+

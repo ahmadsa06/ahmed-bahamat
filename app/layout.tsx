@@ -3,7 +3,7 @@ import { Poppins } from "next/font/google";
 import { site } from "@/content/site";
 import "./globals.css";
 
-/** Poppins — the template's geometric sans, self-hosted at build time and
+/** Poppins - the template's geometric sans, self-hosted at build time and
  *  exposed to globals.css as --font-poppins. */
 const poppins = Poppins({
   subsets: ["latin"],
@@ -14,11 +14,11 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL(`https://${site.brand.domain}`),
-  title: `${site.brand.name} — ${site.brand.tagline}`,
-  description: site.hero.sub,
+  title: site.seo.title,
+  description: site.seo.description,
   openGraph: {
-    title: `${site.brand.name} — ${site.brand.tagline}`,
-    description: site.hero.sub,
+    title: site.seo.openGraphTitle,
+    description: site.seo.openGraphDescription,
     url: `https://${site.brand.domain}`,
     type: "website",
   },
