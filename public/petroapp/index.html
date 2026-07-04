@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ahmed Bahamat — Introduction for PetroApp</title>
+<meta name="description" content="A short introduction from Ahmed Salem Bahamat — technical product manager who builds digital products end to end. Prepared for the PetroApp team: watch the video, read the note, and open the products you can try yourself." />
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../sections.css" />
+<style>
+  /* ---- Intro page layout (same tokens, new composition) ---- */
+  .intro-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Top brand bar — PetroApp logo (left) + Ahmed Bahamat (right) */
+  .intro-head {
+    width: 100%;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg);
+    position: relative;
+    z-index: 2;
+  }
+  .intro-head-inner {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 16px var(--gutter);
+  }
+  .intro-logo {
+    display: block;
+    height: 30px;
+    width: auto;
+  }
+  .intro-by {
+    font-weight: 700;
+    font-size: clamp(1.15rem, 0.95rem + 1vw, 1.55rem);
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    white-space: nowrap;
+  }
+  .intro-main {
+    flex: 1;
+    display: grid;
+    place-items: center;
+    padding: 40px var(--gutter) 48px;
+    position: relative;
+  }
+  .intro-wrap {
+    width: 100%;
+    max-width: 920px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .intro-wrap .eyebrow { margin-bottom: 20px; }
+  .intro-title {
+    font-size: clamp(2rem, 1.3rem + 2.6vw, 3.25rem);
+    letter-spacing: -0.025em;
+  }
+  .intro-title .hl { color: var(--color-primary); }
+  .intro-lede {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-ink-soft);
+    margin: 18px auto 0;
+    max-width: 40em;
+    text-wrap: pretty;
+  }
+  .intro-sub {
+    font-size: var(--text-base);
+    color: var(--color-body);
+    margin: 10px auto 0;
+    max-width: 36em;
+    text-wrap: pretty;
+  }
+
+  /* Video framed with the signature offset ink square */
+  .video-figure {
+    position: relative;
+    margin: 36px auto 0;
+    width: 100%;
+    max-width: 660px;
+  }
+  .video-frame {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background: var(--color-ink);
+    border-radius: 0;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: var(--shadow-card);
+  }
+  .video-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translate(20px, 20px);
+    border: 2px solid var(--color-primary);
+    border-radius: 0;
+    z-index: -1;
+  }
+  .video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+  /* Empty YouTube placeholder — paste the embed iframe here when ready */
+  .video-placeholder {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: var(--color-ink);
+  }
+  .video-placeholder .yt-play {
+    width: 72px;
+    height: 51px;
+    display: block;
+    opacity: 0.9;
+    transition: transform .18s ease, opacity .18s ease;
+  }
+  .video-placeholder:hover .yt-play { transform: scale(1.06); opacity: 1; }
+  .video-caption {
+    margin: 30px auto 0;
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+    text-align: center;
+  }
+
+  /* Personal note under the video (3 paragraphs) */
+  .intro-note {
+    margin: 34px auto 0;
+    max-width: 46em;
+    text-align: left;
+    display: grid;
+    gap: 15px;
+  }
+  .intro-note p {
+    font-size: var(--text-base);
+    line-height: 1.75;
+    color: var(--color-body);
+  }
+
+  /* "Try what I've built" — product link cards */
+  .pa-links-section {
+    margin: 46px auto 0;
+    width: 100%;
+    max-width: 660px;
+    text-align: left;
+  }
+  .pa-section-label {
+    font-size: clamp(1.45rem, 1.05rem + 1.4vw, 1.95rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--color-ink);
+  }
+  .pa-section-hint {
+    margin-top: 6px;
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+  }
+  .pa-links {
+    list-style: none;
+    margin: 22px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 14px;
+  }
+  .pa-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    background: var(--color-bg);
+    text-decoration: none;
+    transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+  }
+  .pa-link:hover {
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-card);
+    transform: translateY(-2px);
+  }
+  .pa-link-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: var(--color-primary-050);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .pa-link-icon .lucide {
+    width: 22px;
+    height: 22px;
+    color: var(--color-primary);
+  }
+  .pa-link-body {
+    flex: 1;
+    min-width: 0;
+  }
+  .pa-link-title {
+    font-weight: 700;
+    color: var(--color-ink);
+    font-size: var(--text-base);
+    letter-spacing: -0.01em;
+  }
+  .pa-link-desc {
+    margin-top: 3px;
+    font-size: var(--text-sm);
+    line-height: 1.5;
+    color: var(--color-body);
+    text-wrap: pretty;
+  }
+  .pa-link-status {
+    flex-shrink: 0;
+    align-self: flex-start;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    background: var(--color-primary-050);
+    border: 1px solid var(--color-primary);
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  /* Footer — prepared-for (left) + built-by with logo (right) */
+  .intro-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    border-top: 1px solid var(--color-border);
+    margin-top: 52px;
+    padding: 22px var(--gutter) 40px;
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+  }
+  .intro-foot-right {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-ink-soft);
+    font-weight: 600;
+  }
+  .intro-foot-logo {
+    height: 18px;
+    width: auto;
+  }
+
+  @media (max-width: 560px) {
+    .intro-head-inner { gap: 20px; padding: 12px var(--gutter); }
+    .intro-logo { height: 24px; }
+    .video-frame::after { transform: translate(12px, 12px); }
+    .pa-link { gap: 12px; padding: 14px 16px; }
+    .pa-link-icon { width: 40px; height: 40px; }
+    .pa-link-icon .lucide { width: 19px; height: 19px; }
+    .intro-foot { flex-direction: column; justify-content: center; text-align: center; }
+  }
+</style>
+</head>
+<body>
+<div class="intro-page">
+
+  <!-- Top brand bar: prepared by Ahmed Bahamat for PetroApp -->
+  <header class="intro-head">
+    <div class="intro-head-inner">
+      <img class="intro-logo" src="petroapp-logo.png" alt="PetroApp" width="171" height="38" />
+      <span class="intro-by">Ahmed Bahamat</span>
+    </div>
+  </header>
+
+  <!-- Decorative dots, same vocabulary as main page -->
+  <span class="dot-grid" aria-hidden="true" style="top:80px; left:-44px;"></span>
+  <span class="dot-grid" aria-hidden="true" style="bottom:90px; right:-44px;"></span>
+  <span class="confetti" aria-hidden="true" style="top:120px; right:18%; width:10px; height:10px; background:var(--dot-navy);"></span>
+  <span class="confetti" aria-hidden="true" style="bottom:160px; left:14%; width:8px; height:8px; background:var(--dot-blue);"></span>
+
+  <main class="intro-main">
+    <div class="intro-wrap">
+      <span class="eyebrow">Prepared for the PetroApp team</span>
+      <h1 class="intro-title">Hi PetroApp team 👋</h1>
+      <p class="intro-lede">I'm Ahmed Bahamat, a technical product manager who builds digital products end to end.</p>
+      <p class="intro-sub">A quick intro, then a few products you can open and try yourself.</p>
+
+      <figure class="video-figure">
+        <div class="video-frame">
+          <!-- ▶ Empty YouTube box. When the video is ready, replace this whole
+               .video-placeholder div with the YouTube embed iframe, e.g.:
+               <iframe src="https://www.youtube-nocookie.com/embed/VIDEO_ID?rel=0&modestbranding=1"
+                 title="Ahmed Bahamat — 90-second introduction for PetroApp" loading="lazy"
+                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                 referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+          <div class="video-placeholder" role="img" aria-label="Introduction video — coming soon">
+            <svg class="yt-play" viewBox="0 0 68 48" aria-hidden="true">
+              <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/>
+              <path d="M45 24 27 14v20z" fill="#fff"/>
+            </svg>
+          </div>
+        </div>
+        <figcaption class="video-caption">90 seconds: who I am and why I'm excited about this role</figcaption>
+      </figure>
+
+      <div class="intro-note">
+        <p>Thanks for watching. In short: most of my product experience has come from building fairly independently, taking products from the problem all the way to something that works, often as the only product person in the room.</p>
+        <p>That taught me a lot, and it's exactly why an Associate Product Manager role at PetroApp appeals to me now. I want to grow inside a mature product team and learn from experienced PMs, designers, and engineers, instead of figuring everything out alone. Fuel and mobility also sit close to the logistics and marketplace products I've worked on, so I'd be building the craft in a space I already care about.</p>
+        <p>I'm not chasing a title. I'm looking for the right team to grow with, and I'd bring a strong technical foundation and hands-on AI product experience along the way.</p>
+      </div>
+
+      <section class="pa-links-section" aria-labelledby="try-heading">
+        <h2 class="pa-section-label" id="try-heading">Try what I've built</h2>
+        <p class="pa-section-hint">These are real. Open them and click around.</p>
+        <ul class="pa-links">
+          <li>
+            <a class="pa-link" href="https://fragraworld.com" target="_blank" rel="noopener noreferrer">
+              <span class="pa-link-icon"><i data-lucide="shopping-bag"></i></span>
+              <span class="pa-link-body">
+                <span class="pa-link-title">Fragrance Marketplace</span>
+                <span class="pa-link-desc">Multi-vendor marketplace: listings, auctions, payments, and seller workflows.</span>
+              </span>
+              <span class="pa-link-status">Live</span>
+            </a>
+          </li>
+          <li>
+            <a class="pa-link" href="https://logistic.ahmedbahamat.com" target="_blank" rel="noopener noreferrer">
+              <span class="pa-link-icon"><i data-lucide="truck"></i></span>
+              <span class="pa-link-body">
+                <span class="pa-link-title">Logistics Operations System</span>
+                <span class="pa-link-desc">Internal multi-role operations platform with role-based access and cross-department requests.</span>
+              </span>
+              <span class="pa-link-status">Staging demo</span>
+            </a>
+          </li>
+          <li>
+            <a class="pa-link" href="/cv/ahmed-bahamat-petroapp.pdf" target="_blank" rel="noopener noreferrer">
+              <span class="pa-link-icon"><i data-lucide="file-text"></i></span>
+              <span class="pa-link-body">
+                <span class="pa-link-title">My CV, tailored for this role</span>
+                <span class="pa-link-desc">Two pages, focused on the product and technical work most relevant to PetroApp.</span>
+              </span>
+              <span class="pa-link-status">PDF</span>
+            </a>
+          </li>
+          <li>
+            <a class="pa-link" href="https://ahmedbahamat.com" target="_blank" rel="noopener noreferrer">
+              <span class="pa-link-icon"><i data-lucide="globe"></i></span>
+              <span class="pa-link-body">
+                <span class="pa-link-title">Full portfolio</span>
+                <span class="pa-link-desc">All my product work, skills, and case studies in one place.</span>
+              </span>
+              <span class="pa-link-status">Website</span>
+            </a>
+          </li>
+          <li>
+            <a class="pa-link" href="https://linkedin.com/in/ahmed-bahamat" target="_blank" rel="noopener noreferrer">
+              <span class="pa-link-icon"><i data-lucide="linkedin"></i></span>
+              <span class="pa-link-body">
+                <span class="pa-link-title">LinkedIn</span>
+                <span class="pa-link-desc">Happy to connect and talk more.</span>
+              </span>
+              <span class="pa-link-status">Profile</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <footer class="intro-foot">
+    <span class="intro-foot-left">Prepared for PetroApp</span>
+    <span class="intro-foot-right">
+      Built end to end by Ahmed Bahamat
+      <img class="intro-foot-logo" src="petroapp-logo.png" alt="PetroApp" width="171" height="38" />
+    </span>
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var ICONS = {
+      "shopping-bag": '<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>',
+      "truck": '<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 18.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/>',
+      "file-text": '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>',
+      "globe": '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
+      "linkedin": '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>'
+    };
+    document.querySelectorAll("i[data-lucide]").forEach(function (el) {
+      var inner = ICONS[el.getAttribute("data-lucide")];
+      if (!inner) return;
+      var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      svg.setAttribute("viewBox", "0 0 24 24");
+      svg.setAttribute("fill", "none");
+      svg.setAttribute("stroke", "currentColor");
+      svg.setAttribute("stroke-width", "2");
+      svg.setAttribute("stroke-linecap", "round");
+      svg.setAttribute("stroke-linejoin", "round");
+      svg.setAttribute("class", "lucide");
+      svg.setAttribute("aria-hidden", "true");
+      svg.innerHTML = inner;
+      el.replaceWith(svg);
+    });
+  })();
+</script>
+</body>
+</html>
