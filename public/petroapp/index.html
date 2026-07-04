@@ -244,6 +244,63 @@
     white-space: nowrap;
   }
 
+  /* Brand icon (LinkedIn app icon) fills the slot — no tinted backdrop */
+  .pa-link-icon--brand { background: transparent; }
+  .pa-link-icon--brand svg { width: 100%; height: 100%; display: block; }
+
+  /* CV + Full portfolio — paired blue action buttons, side by side */
+  .pa-cta-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .pa-cta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px 20px;
+    border: 1px solid var(--color-primary);
+    border-radius: 14px;
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    text-decoration: none;
+    transition: background .15s ease, box-shadow .15s ease, transform .15s ease;
+  }
+  .pa-cta:hover {
+    background: var(--color-primary-deep);
+    box-shadow: var(--shadow-card);
+    transform: translateY(-2px);
+  }
+  .pa-cta-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.16);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .pa-cta-icon .lucide {
+    width: 22px;
+    height: 22px;
+    color: var(--color-on-primary);
+  }
+  .pa-cta-body { min-width: 0; }
+  .pa-cta-title {
+    font-weight: 700;
+    font-size: var(--text-base);
+    letter-spacing: -0.01em;
+    color: var(--color-on-primary);
+  }
+  .pa-cta-sub {
+    margin-top: 2px;
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.82);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   /* Footer — prepared-for (left) + built-by with logo (right) */
   .intro-foot {
     display: flex;
@@ -276,6 +333,10 @@
     .pa-link { gap: 12px; padding: 14px 16px; }
     .pa-link-icon { width: 40px; height: 40px; }
     .pa-link-icon .lucide { width: 19px; height: 19px; }
+    .pa-cta { flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 14px 12px; }
+    .pa-cta-icon { width: 40px; height: 40px; }
+    .pa-cta-icon .lucide { width: 19px; height: 19px; }
+    .pa-cta-sub { display: none; }
     .intro-foot { flex-direction: column; justify-content: center; text-align: center; }
   }
 </style>
@@ -353,28 +414,31 @@
             </a>
           </li>
           <li>
-            <a class="pa-link" href="/cv/ahmed-bahamat-petroapp.pdf" target="_blank" rel="noopener noreferrer">
-              <span class="pa-link-icon"><i data-lucide="file-text"></i></span>
-              <span class="pa-link-body">
-                <span class="pa-link-title">My CV, tailored for this role</span>
-                <span class="pa-link-desc">Two pages, focused on the product and technical work most relevant to PetroApp.</span>
-              </span>
-              <span class="pa-link-status">PDF</span>
-            </a>
-          </li>
-          <li>
-            <a class="pa-link" href="https://ahmedbahamat.com" target="_blank" rel="noopener noreferrer">
-              <span class="pa-link-icon"><i data-lucide="globe"></i></span>
-              <span class="pa-link-body">
-                <span class="pa-link-title">Full portfolio</span>
-                <span class="pa-link-desc">All my product work, skills, and case studies in one place.</span>
-              </span>
-              <span class="pa-link-status">Website</span>
-            </a>
+            <div class="pa-cta-row">
+              <a class="pa-cta" href="/cv/ahmed-bahamat-petroapp.pdf" target="_blank" rel="noopener noreferrer">
+                <span class="pa-cta-icon"><i data-lucide="file-text"></i></span>
+                <span class="pa-cta-body">
+                  <span class="pa-cta-title">My CV</span>
+                  <span class="pa-cta-sub">Tailored · PDF</span>
+                </span>
+              </a>
+              <a class="pa-cta" href="https://ahmedbahamat.com" target="_blank" rel="noopener noreferrer">
+                <span class="pa-cta-icon"><i data-lucide="globe"></i></span>
+                <span class="pa-cta-body">
+                  <span class="pa-cta-title">Full portfolio</span>
+                  <span class="pa-cta-sub">ahmedbahamat.com</span>
+                </span>
+              </a>
+            </div>
           </li>
           <li>
             <a class="pa-link" href="https://linkedin.com/in/ahmed-bahamat" target="_blank" rel="noopener noreferrer">
-              <span class="pa-link-icon"><i data-lucide="linkedin"></i></span>
+              <span class="pa-link-icon pa-link-icon--brand">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect width="24" height="24" rx="5" fill="#0A66C2" />
+                  <path fill="#fff" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zM7.119 20.452H3.555V9h3.564v11.452z" />
+                </svg>
+              </span>
               <span class="pa-link-body">
                 <span class="pa-link-title">LinkedIn</span>
                 <span class="pa-link-desc">Happy to connect and talk more.</span>
@@ -402,8 +466,7 @@
       "shopping-bag": '<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>',
       "truck": '<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 18.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/>',
       "file-text": '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>',
-      "globe": '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
-      "linkedin": '<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/>'
+      "globe": '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>'
     };
     document.querySelectorAll("i[data-lucide]").forEach(function (el) {
       var inner = ICONS[el.getAttribute("data-lucide")];
