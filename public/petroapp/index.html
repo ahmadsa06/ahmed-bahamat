@@ -54,6 +54,7 @@
   .intro-main {
     flex: 1;
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     place-items: center;
     padding: 40px var(--gutter) 48px;
     position: relative;
@@ -61,6 +62,7 @@
   .intro-wrap {
     width: 100%;
     max-width: 920px;
+    min-width: 0;
     text-align: center;
     position: relative;
     z-index: 1;
@@ -180,12 +182,14 @@
     margin: 22px 0 0;
     padding: 0;
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 14px;
   }
   .pa-link {
     display: flex;
     align-items: center;
     gap: 16px;
+    min-width: 0;
     padding: 18px 20px;
     border: 1px solid var(--color-border);
     border-radius: 14px;
@@ -229,9 +233,15 @@
     color: var(--color-body);
     text-wrap: pretty;
   }
-  .pa-link-status {
+  /* Right column: status badge (info) + Visit button (action) */
+  .pa-link-meta {
     flex-shrink: 0;
-    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+  }
+  .pa-link-status {
     font-size: 0.7rem;
     font-weight: 700;
     letter-spacing: 0.03em;
@@ -243,6 +253,28 @@
     border-radius: 999px;
     white-space: nowrap;
   }
+  .pa-link-visit {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-on-primary);
+    background: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    padding: 8px 14px;
+    border-radius: 8px;
+    white-space: nowrap;
+    transition: background .15s ease;
+  }
+  .pa-link-visit .lucide {
+    width: 15px;
+    height: 15px;
+    color: var(--color-on-primary);
+    transition: transform .15s ease;
+  }
+  .pa-link:hover .pa-link-visit { background: var(--color-primary-deep); }
+  .pa-link:hover .pa-link-visit .lucide { transform: translate(1px, -1px); }
 
   /* Brand icon (LinkedIn app icon) fills the slot — no tinted backdrop */
   .pa-link-icon--brand { background: transparent; }
@@ -251,13 +283,14 @@
   /* CV + Full portfolio — paired blue action buttons, side by side */
   .pa-cta-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 14px;
   }
   .pa-cta {
     display: flex;
     align-items: center;
     gap: 14px;
+    min-width: 0;
     padding: 18px 20px;
     border: 1px solid var(--color-primary);
     border-radius: 14px;
@@ -333,6 +366,8 @@
     .pa-link { gap: 12px; padding: 14px 16px; }
     .pa-link-icon { width: 40px; height: 40px; }
     .pa-link-icon .lucide { width: 19px; height: 19px; }
+    .pa-link-meta { gap: 8px; }
+    .pa-link-visit { padding: 7px 12px; font-size: 0.78rem; }
     .pa-cta { flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 14px 12px; }
     .pa-cta-icon { width: 40px; height: 40px; }
     .pa-cta-icon .lucide { width: 19px; height: 19px; }
@@ -400,7 +435,10 @@
                 <span class="pa-link-title">Fragrance Marketplace</span>
                 <span class="pa-link-desc">Multi-vendor marketplace: listings, auctions, payments, and seller workflows.</span>
               </span>
-              <span class="pa-link-status">Live</span>
+              <span class="pa-link-meta">
+                <span class="pa-link-status">Live</span>
+                <span class="pa-link-visit">Visit <i data-lucide="arrow-up-right"></i></span>
+              </span>
             </a>
           </li>
           <li>
@@ -410,7 +448,10 @@
                 <span class="pa-link-title">Logistics Operations System</span>
                 <span class="pa-link-desc">Internal multi-role operations platform with role-based access and cross-department requests.</span>
               </span>
-              <span class="pa-link-status">Staging demo</span>
+              <span class="pa-link-meta">
+                <span class="pa-link-status">Staging demo</span>
+                <span class="pa-link-visit">Visit <i data-lucide="arrow-up-right"></i></span>
+              </span>
             </a>
           </li>
           <li>
@@ -443,7 +484,10 @@
                 <span class="pa-link-title">LinkedIn</span>
                 <span class="pa-link-desc">Happy to connect and talk more.</span>
               </span>
-              <span class="pa-link-status">Profile</span>
+              <span class="pa-link-meta">
+                <span class="pa-link-status">Profile</span>
+                <span class="pa-link-visit">Visit <i data-lucide="arrow-up-right"></i></span>
+              </span>
             </a>
           </li>
         </ul>
@@ -466,7 +510,8 @@
       "shopping-bag": '<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>',
       "truck": '<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 18.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/>',
       "file-text": '<path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/>',
-      "globe": '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>'
+      "globe": '<circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/>',
+      "arrow-up-right": '<path d="M7 7h10v10"/><path d="M7 17 17 7"/>'
     };
     document.querySelectorAll("i[data-lucide]").forEach(function (el) {
       var inner = ICONS[el.getAttribute("data-lucide")];
