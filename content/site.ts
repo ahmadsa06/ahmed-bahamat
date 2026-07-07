@@ -99,16 +99,16 @@ export const site = {
   brand: {
     name: "Ahmed Bahamat",
     domain: "ahmedbahamat.com",
-    tagline: "AI Product Manager",
+    tagline: "Product Manager & Technical Product Owner",
   },
 
   seo: {
-    title: "Ahmed Bahamat | AI Product Manager",
+    title: "Ahmed Bahamat | Product Manager & Technical Product Owner",
     description:
-      "AI Product Manager and digital product builder focused on SaaS, logistics, marketplaces, internal systems, and AI-assisted product delivery.",
-    openGraphTitle: "Ahmed Bahamat | AI Product Manager",
+      "Product manager and technical product owner who builds digital products end to end across SaaS, marketplaces, logistics, and AI-assisted products.",
+    openGraphTitle: "Ahmed Bahamat | Product Manager & Technical Product Owner",
     openGraphDescription:
-      "Turning business and operational problems into PRDs, workflows, MVPs, and functional staging systems across SaaS, logistics, marketplaces, and AI-enabled workflows.",
+      "Product manager and technical product owner who builds digital products end to end across SaaS, marketplaces, logistics, and AI-assisted products.",
   },
 
   nav: {
@@ -124,10 +124,10 @@ export const site = {
 
   hero: {
     eyebrow: "Welcome",
-    title: { lead: "AI ", highlight: "Product", tail: " Manager" } as Heading,
-    subtitle: "Digital Product Builder | SaaS | Marketplaces | Internal Systems",
+    title: { lead: "Product Manager & ", highlight: "Technical Product Owner" } as Heading,
+    subtitle: "AI-native builder | SaaS | Marketplaces | Internal Systems",
     sub:
-      "I turn business and operational problems into clear product requirements, user workflows, MVPs, and functional staging systems. My work combines product discovery, PRD writing, AI-assisted product delivery, technical coordination, and hands-on product building across logistics, marketplaces, SaaS, and internal tools.",
+      "I'm a product manager and technical product owner who builds digital products end to end. I take products from the problem to a working MVP, get hands-on with the technical side (Laravel, PostgreSQL, REST APIs), and build AI-assisted products (LLM workflows, RAG, human-in-the-loop). My work spans logistics, marketplaces, SaaS, and internal tools.",
     primaryCta: { label: "View Product Work", href: "#portfolio" },
     secondaryCta: { label: "Download CV", href: "/ahmed-bahamat-cv.pdf" },
     photo: {
@@ -149,9 +149,9 @@ export const site = {
 
   skills: {
     eyebrow: "My Skills",
-    title: { lead: "How I Work as an ", highlight: "AI Product Manager" } as Heading,
+    title: { lead: "How I ", highlight: "Work" } as Heading,
     lead:
-      "I combine product thinking with hands-on product building. I can frame the problem, write requirements, design workflows, coordinate technical decisions, build or guide MVPs, and prepare products for testing and launch.",
+      "I combine product thinking with hands-on building. I frame the problem, write requirements, design workflows, make technical decisions with engineers, build or guide MVPs, and get products ready for testing and launch.",
     cta: { label: "View Product Work", href: "#portfolio" },
     cards: [
       {
@@ -166,8 +166,8 @@ export const site = {
       },
       {
         icon: "design",
-        title: "AI-Assisted Building",
-        body: "I use AI tools to speed up prototyping, documentation, debugging, and product exploration while keeping product decisions grounded in real business needs.",
+        title: "AI-Native Building",
+        body: "I build products that use AI (LLM workflows, RAG, human-in-the-loop), and I use AI tools daily to prototype, document, and ship faster.",
       },
       {
         icon: "code",
@@ -231,7 +231,7 @@ export const site = {
     eyebrow: "Contact",
     title: { lead: "Let's Discuss Product Roles or ", highlight: "Collaboration" } as Heading,
     lead:
-      "I am open to AI Product Manager and Product Manager roles in Riyadh, especially where product discovery, digital product building, SaaS, marketplaces, logistics, internal systems, or AI-enabled workflows are important.",
+      "I'm open to Product Manager and Technical Product Owner roles in Riyadh, especially where product discovery, hands-on product building, SaaS, marketplaces, logistics, internal systems, or AI-enabled products matter.",
     actions: [
       { label: "Download CV", href: "/ahmed-bahamat-cv.pdf", kind: "cv" },
       { label: "Connect on LinkedIn", href: "https://www.linkedin.com/in/ahmed-bahamat", kind: "linkedin" },
