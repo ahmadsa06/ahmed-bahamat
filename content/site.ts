@@ -47,6 +47,15 @@ export interface Project {
   tags?: readonly string[];
   image?: string;
   href?: string;
+  /** Button text for `href`. Defaults to "Visit site" when omitted. */
+  linkLabel?: string;
+}
+
+/** A titled, subtitled group of project cards rendered as one portfolio block. */
+export interface ProjectGroup {
+  title: Heading;
+  subtitle: string;
+  items: readonly Project[];
 }
 
 export type ContactKind = "phone" | "email" | "location";
@@ -179,45 +188,81 @@ export const site = {
 
   portfolio: {
     eyebrow: "Portfolio",
-    title: { lead: "Selected ", highlight: "Product Work" } as Heading,
-    featured: [
-      {
-        title: "Logistics Operations System",
-        blurb:
-          "Internal operations system for logistics companies, covering requests, roles, permissions, task assignment, HR, finance, fleet, operations, and a courier portal.",
-        decision: "Model real cross-department workflows instead of building a generic admin panel.",
-        status: "Functional staging system - pilot not launched.",
-        tags: ["SaaS", "Logistics", "Internal Tools", "Laravel", "PostgreSQL", "Role-Based Access", "Workflow Automation"],
-        href: "https://logistic.ahmedbahamat.com",
-      },
-      {
-        title: "Fragrance Marketplace",
-        blurb:
-          "Multi-vendor marketplace for new and pre-owned fragrances, including auctions, seller workflows, product listing, payment, shipping, and buyer protection concepts.",
-        decision: "Simplify seller listing through a one-page product flow connected to a fragrance library.",
-        status: "Functional pre-launch product - catalog completion pending.",
-        tags: ["Marketplace", "E-commerce", "Auctions", "Seller Workflows", "Payments", "Shipping"],
-        href: "https://fragraworld.com",
-      },
-      {
-        title: "AI Request Quality Reviewer Agent",
-        blurb:
-          "AI product concept for reviewing enterprise requests before approval, detecting missing fields, data conflicts, attachment gaps, and workflow concerns without approving, rejecting, or bypassing permissions.",
-        decision: "Use AI as a quality layer while keeping approval decisions inside the existing workflow and RBAC rules.",
-        status: "Implementation-ready MVP scope.",
-        tags: ["AI Product", "Agentic Workflow", "RAG Concepts", "Human-in-the-Loop", "Guardrails", "RBAC", "Multi-Tenant Awareness"],
-      },
-    ] as Project[],
-    more: [
-      { title: "AI telesales assistant", blurb: "Real-time call scripting and CRM workflow concept.", href: "https://telesales.ahmedbahamat.com" },
-      { title: "Clubs Platform", blurb: "Kids'-club SaaS with parent progress tracking.", href: "https://kids.ahmedbahamat.com" },
-      { title: "Marj3", blurb: "Spaced-repetition learning product for multi-disciplinary professionals.", href: "https://marj3.ahmedbahamat.com" },
-      { title: "Alsawi", blurb: "Trainer-student course platform; beta context documented.", href: "https://academy.ahmedbahamat.com/" },
-      { title: "Earab", blurb: "Leveled Arabic-grammar learning product.", href: "https://earab.net" },
-      { title: "Tarsya landing page", blurb: "Marketing site for tender automation positioning.", href: "https://tarsya.net" },
-    ] as Project[],
-    showMoreLabel: "Show More",
-    showLessLabel: "Show Less",
+    // Two grouped blocks, same card component for both. Order here = render order.
+    products: {
+      title: { lead: "Products & ", highlight: "Platforms" } as Heading,
+      subtitle: "Full products and websites, built end to end.",
+      items: [
+        {
+          title: "Logistics Operations System",
+          blurb:
+            "Internal operations system for logistics companies, covering requests, roles, permissions, task assignment, HR, finance, fleet, operations, and a courier portal.",
+          decision: "Model real cross-department workflows instead of building a generic admin panel.",
+          status: "Functional staging system - pilot not launched.",
+          tags: ["SaaS", "Logistics", "Internal Tools", "Laravel", "PostgreSQL", "Role-Based Access", "Workflow Automation"],
+          href: "https://logistic.ahmedbahamat.com",
+        },
+        {
+          title: "Fragrance Marketplace",
+          blurb:
+            "Multi-vendor marketplace for new and pre-owned fragrances, including auctions, seller workflows, product listing, payment, shipping, and buyer protection concepts.",
+          decision: "Simplify seller listing through a one-page product flow connected to a fragrance library.",
+          status: "Functional pre-launch product - catalog completion pending.",
+          tags: ["Marketplace", "E-commerce", "Auctions", "Seller Workflows", "Payments", "Shipping"],
+          href: "https://fragraworld.com",
+        },
+        { title: "AI telesales assistant", blurb: "Real-time call scripting and CRM workflow concept.", href: "https://telesales.ahmedbahamat.com" },
+        { title: "Clubs Platform", blurb: "Kids'-club SaaS with parent progress tracking.", href: "https://kids.ahmedbahamat.com" },
+        { title: "Marj3", blurb: "Spaced-repetition learning product for multi-disciplinary professionals.", href: "https://marj3.ahmedbahamat.com" },
+        { title: "Alsawi", blurb: "Trainer-student course platform; beta context documented.", href: "https://academy.ahmedbahamat.com/" },
+        { title: "Earab", blurb: "Leveled Arabic-grammar learning product.", href: "https://earab.net" },
+        { title: "Tarsya landing page", blurb: "Marketing site for tender automation positioning.", href: "https://tarsya.net" },
+      ],
+    } as ProjectGroup,
+    tools: {
+      title: { lead: "Tools & ", highlight: "Automation" } as Heading,
+      subtitle: "Utilities I built to solve real operational problems.",
+      items: [
+        {
+          title: "AI Request Quality Reviewer Agent",
+          blurb:
+            "AI product concept for reviewing enterprise requests before approval, detecting missing fields, data conflicts, attachment gaps, and workflow concerns without approving, rejecting, or bypassing permissions.",
+          decision: "Use AI as a quality layer while keeping approval decisions inside the existing workflow and RBAC rules.",
+          status: "Implementation-ready MVP scope.",
+          tags: ["AI Product", "Agentic Workflow", "RAG Concepts", "Human-in-the-Loop", "Guardrails", "RBAC", "Multi-Tenant Awareness"],
+        },
+        {
+          title: "KPI Reporting Tool",
+          blurb:
+            "Desktop app that parses six Keeta platform files, builds a performance report for each courier, and automatically sends every courier their own report over WhatsApp.",
+          decision: "Automate the whole build-and-send pipeline so supervisors stop rebuilding the same report by hand every day.",
+          status: "Working desktop app (Electron). Cut a daily supervisor task from about 30 minutes to under 2 minutes.",
+          tags: ["Automation", "Electron", "Chromium", "WhatsApp Integration", "Reporting"],
+          // No live site (desktop app). Add a demo link when ready:
+          // href: "VIDEO_URL", linkLabel: "Watch demo",
+        },
+        {
+          title: "WhatsApp Bulk Messaging Tool",
+          blurb:
+            "Desktop app for sending personalized bulk WhatsApp messages, with randomized delays to reduce the risk of blocking, per-recipient attachments (PDF or image) and variable text, in-app number entry or Excel import, and delivery-status tracking.",
+          decision: "Make bulk outreach both safe and personalized instead of risky, identical mass blasts.",
+          status: "Working desktop app (Electron).",
+          tags: ["Automation", "Electron", "Chromium", "WhatsApp Integration", "Excel Import"],
+          // No live site (desktop app). Add a demo link when ready:
+          // href: "VIDEO_URL", linkLabel: "Watch demo",
+        },
+        {
+          title: "Restaurant Rating Tool",
+          blurb:
+            "Web tool that turns an uploaded Keeta restaurants file into an instant, well-designed report and sends it to couriers directly over WhatsApp.",
+          decision: "Turn a raw data export into a clean, ready-to-share report in a single step.",
+          status: "Working web tool (live link pending deployment).",
+          tags: ["Web Tool", "Automation", "WhatsApp Integration", "Reporting", "Data Processing"],
+          // Live link pending — add the deployed URL (renders a "Visit site" button):
+          // href: "RESTAURANT_TOOL_URL",
+        },
+      ],
+    } as ProjectGroup,
   },
 
   // No real quotes yet - section is built but commented out of page.tsx.
