@@ -15,6 +15,8 @@ function ProjectCard({ p }: { p: Project }) {
       className="flex flex-col overflow-hidden rounded-lg border border-border bg-white shadow-card transition-[transform,box-shadow] hover:-translate-y-1.5 hover:shadow-card-hover"
     >
       <div
+        role="img"
+        aria-label={`Reserved image area for the ${p.title} interface`}
         className="relative grid aspect-[16/10] place-items-center border-b border-border"
         style={{
           backgroundImage:

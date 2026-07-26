@@ -11,9 +11,12 @@ export default function ArrowLink({
   children: ReactNode;
   className?: string;
 }) {
+  const external = href.startsWith("http");
+
   return (
     <a
       href={href}
+      {...(external ? { target: "_blank", rel: "noreferrer noopener" } : {})}
       className={
         "group inline-flex items-center gap-1.5 font-semibold text-ink transition-colors hover:text-primary-lift " +
         className

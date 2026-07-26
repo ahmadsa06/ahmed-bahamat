@@ -17,7 +17,11 @@ export default function Skills() {
   const { skills } = site;
 
   return (
-    <section id="skills" aria-labelledby="skillsTitle" className="relative py-section max-md:py-section-sm">
+    <section
+      id="skills"
+      aria-labelledby="skillsTitle"
+      className="relative overflow-hidden py-section max-md:py-section-sm"
+    >
       <DotGrid className="bottom-[60px] right-[-40px] h-[132px] w-[132px]" />
       <div className="container mx-auto grid items-start gap-14 px-gutter lg:grid-cols-[0.9fr_1.1fr]">
         <Reveal className="max-w-[640px]">

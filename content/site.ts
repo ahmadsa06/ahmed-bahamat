@@ -97,7 +97,7 @@ export interface Testimonial {
 const socials: SocialLink[] = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/ahmed-bahamat", icon: "linkedin" },
   { label: "X", href: "https://x.com/ahmedbahamat", icon: "twitter" },
-  { label: "GitHub", href: "https://github.com/ahmedbahamat", icon: "github" },
+  { label: "GitHub", href: "https://github.com/ahmadsa06", icon: "github" },
 ];
 
 // ----------------------------------------------------------------------------
@@ -112,12 +112,12 @@ export const site = {
   },
 
   seo: {
-    title: "Ahmed Bahamat | Product Manager & Technical Product Owner",
+    title: "Ahmed Bahamat | Product Manager, Technical Product Owner & AI-Native Builder",
     description:
-      "Product manager and technical product owner who builds digital products end to end across SaaS, marketplaces, logistics, and AI-assisted products.",
-    openGraphTitle: "Ahmed Bahamat | Product Manager & Technical Product Owner",
+      "Ahmed Bahamat is a product manager, technical product owner, and AI-native builder who turns business and operational problems into working software.",
+    openGraphTitle: "Ahmed Bahamat | Product Manager, Technical Product Owner & AI-Native Builder",
     openGraphDescription:
-      "Product manager and technical product owner who builds digital products end to end across SaaS, marketplaces, logistics, and AI-assisted products.",
+      "Product manager, technical product owner, and AI-native builder building working software across logistics, EdTech, SaaS, marketplaces, and internal systems.",
   },
 
   nav: {
@@ -136,12 +136,12 @@ export const site = {
     title: { lead: "Product Manager & ", highlight: "Technical Product Owner" } as Heading,
     subtitle: "AI-native builder | SaaS | Marketplaces | Internal Systems",
     sub:
-      "I'm a product manager and technical product owner who builds digital products end to end. I take products from the problem to a working MVP, get hands-on with the technical side (Laravel, PostgreSQL, REST APIs), and build AI-assisted products (LLM workflows, RAG, human-in-the-loop). My work spans logistics, marketplaces, SaaS, and internal tools.",
+      "I’m a product manager and AI-native builder who turns business and operational problems into working software. I work across discovery, requirements, workflows, delivery, testing, and iteration, and I use AI-assisted development to build and validate products across logistics, EdTech, SaaS, marketplaces, and internal systems.",
     primaryCta: { label: "View Product Work", href: "#portfolio" },
     secondaryCta: { label: "Download CV", href: "/ahmed-bahamat-cv.pdf" },
     photo: {
       src: "/images/ahmed-bahamat.png",
-      alt: "Ahmed Salem Bahamat",
+      alt: "Portrait of Ahmed Salem Bahamat",
       width: 720,
       height: 836,
     },
@@ -194,6 +194,42 @@ export const site = {
       subtitle: "Full products and websites, built end to end.",
       items: [
         {
+          title: "Etad Hub",
+          blurb:
+            "A live logistics operations platform that provides practical tools for delivery companies. It transforms operational Excel files into structured reports, courier performance cards, restaurant evaluations, and violation notifications ready for delivery.",
+          decision:
+            "Process sensitive operational files locally inside the browser and use a local desktop agent for WhatsApp delivery, reducing exposure of payroll, ID, banking, and courier data.",
+          status: "Live product with three working logistics tools.",
+          tags: [
+            "Logistics",
+            "Operations Automation",
+            "Excel Processing",
+            "Data Privacy",
+            "Local Processing",
+            "Reporting",
+            "WhatsApp Integration",
+          ],
+          href: "https://etadhub.com/",
+        },
+        {
+          title: "Earab",
+          blurb:
+            "A mobile-first Arabic grammar learning platform with a progressive curriculum, varied exercises, instant feedback, full-sentence parsing, and gamified learning mechanics.",
+          decision:
+            "Teach grammar through progressive practice and complete sentence analysis instead of relying only on isolated questions or memorized rules. The product includes partial scoring, clear error explanations, and content review controls.",
+          status: "Live product with a guest lesson available without registration.",
+          tags: [
+            "EdTech",
+            "Arabic Learning",
+            "Gamification",
+            "Mobile-First",
+            "PWA",
+            "Content Management",
+            "Product Delivery",
+          ],
+          href: "https://www.earab.net/",
+        },
+        {
           title: "Logistics Operations System",
           blurb:
             "Internal operations system for logistics companies, covering requests, roles, permissions, task assignment, HR, finance, fleet, operations, and a courier portal.",
@@ -215,7 +251,6 @@ export const site = {
         { title: "Clubs Platform", blurb: "Kids'-club SaaS with parent progress tracking.", href: "https://kids.ahmedbahamat.com" },
         { title: "Marj3", blurb: "Spaced-repetition learning product for multi-disciplinary professionals.", href: "https://marj3.ahmedbahamat.com" },
         { title: "Alsawi", blurb: "Trainer-student course platform; beta context documented.", href: "https://academy.ahmedbahamat.com/" },
-        { title: "Earab", blurb: "Leveled Arabic-grammar learning product.", href: "https://earab.net" },
         { title: "Tarsya landing page", blurb: "Marketing site for tender automation positioning.", href: "https://tarsya.net" },
       ],
     } as ProjectGroup,
@@ -224,42 +259,22 @@ export const site = {
       subtitle: "Utilities I built to solve real operational problems.",
       items: [
         {
-          title: "AI Request Quality Reviewer Agent",
+          title: "Discover",
           blurb:
-            "AI product concept for reviewing enterprise requests before approval, detecting missing fields, data conflicts, attachment gaps, and workflow concerns without approving, rejecting, or bypassing permissions.",
-          decision: "Use AI as a quality layer while keeping approval decisions inside the existing workflow and RBAC rules.",
-          status: "Implementation-ready MVP scope.",
-          tags: ["AI Product", "Agentic Workflow", "RAG Concepts", "Human-in-the-Loop", "Guardrails", "RBAC", "Multi-Tenant Awareness"],
-        },
-        {
-          title: "KPI Reporting Tool",
-          blurb:
-            "Desktop app that parses six Keeta platform files, builds a performance report for each courier, and automatically sends every courier their own report over WhatsApp.",
-          decision: "Automate the whole build-and-send pipeline so supervisors stop rebuilding the same report by hand every day.",
-          status: "Working desktop app (Electron). Cut a daily supervisor task from about 30 minutes to under 2 minutes.",
-          tags: ["Automation", "Electron", "Chromium", "WhatsApp Integration", "Reporting"],
-          // No live site (desktop app). Add a demo link when ready:
-          // href: "VIDEO_URL", linkLabel: "Watch demo",
-        },
-        {
-          title: "WhatsApp Bulk Messaging Tool",
-          blurb:
-            "Desktop app for sending personalized bulk WhatsApp messages, with randomized delays to reduce the risk of blocking, per-recipient attachments (PDF or image) and variable text, in-app number entry or Excel import, and delivery-status tracking.",
-          decision: "Make bulk outreach both safe and personalized instead of risky, identical mass blasts.",
-          status: "Working desktop app (Electron).",
-          tags: ["Automation", "Electron", "Chromium", "WhatsApp Integration", "Excel Import"],
-          // No live site (desktop app). Add a demo link when ready:
-          // href: "VIDEO_URL", linkLabel: "Watch demo",
-        },
-        {
-          title: "Restaurant Rating Tool",
-          blurb:
-            "Web tool that turns an uploaded Keeta restaurants file into an instant, well-designed report and sends it to couriers directly over WhatsApp.",
-          decision: "Turn a raw data export into a clean, ready-to-share report in a single step.",
-          status: "Working web tool (live link pending deployment).",
-          tags: ["Web Tool", "Automation", "WhatsApp Integration", "Reporting", "Data Processing"],
-          // Live link pending — add the deployed URL (renders a "Visit site" button):
-          // href: "RESTAURANT_TOOL_URL",
+            "A B2B prospecting tool that identifies businesses by activity and geographic area, organizes available company and contact information, and supports outreach through WhatsApp and email.",
+          decision:
+            "Combine business discovery, contact organization, and outreach preparation in one workflow instead of moving manually between maps, spreadsheets, WhatsApp, and email.",
+          status: "Working access-controlled product.",
+          tags: [
+            "B2B",
+            "Sales Operations",
+            "Lead Discovery",
+            "Geographic Search",
+            "Data Processing",
+            "WhatsApp",
+            "Email Automation",
+          ],
+          href: "https://discover.ahmedbahamat.com/",
         },
       ],
     } as ProjectGroup,
