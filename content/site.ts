@@ -138,7 +138,7 @@ export const site = {
     sub:
       "I analyze how a business actually runs, design the systems and workflows behind it, and build automations inside ERP platforms, using AI to move faster while keeping a human review step where accuracy matters. My background in product management and seven years in sales shape how I turn requirements into systems people actually use.",
     primaryCta: { label: "View My Work", href: "#portfolio" },
-    secondaryCta: { label: "Get in touch", href: "#contact" },
+    secondaryCta: { label: "Download CV", href: "/ahmed-bahamat-cv.pdf" },
     photo: {
       src: "/images/ahmed-bahamat.png",
       alt: "Portrait of Ahmed Salem Bahamat",
@@ -194,9 +194,9 @@ export const site = {
       subtitle: "Business systems, automations, and products, built end to end.",
       items: [
         {
-          title: "ERP Automation & Business Systems",
+          title: "ERP Automation at Numo",
           blurb:
-            "Current role: analyzing, designing, and automating business workflows inside a company ERP for a training and education organization, including collections, sales commissions, an AI-assisted influencer-tracking module linked to business intelligence, and product master-data unification.",
+            "Current role at Numo Al-Aali Training & Education: analyzing, designing, and automating business workflows inside the company ERP, including collections, sales commissions, an AI-assisted influencer-tracking module linked to business intelligence, and product master-data unification.",
           decision:
             "Analyze the live system before building to avoid duplicating existing models, then implement and validate every automation on staging before production.",
           status: "In progress: automations under validation on staging.",
@@ -312,6 +312,7 @@ export const site = {
     lead:
       "Happy to talk about business systems, ERP workflows, process automation, and practical uses of AI in operations.",
     actions: [
+      { label: "Download CV", href: "/ahmed-bahamat-cv.pdf", kind: "cv" },
       { label: "Connect on LinkedIn", href: "https://www.linkedin.com/in/ahmed-bahamat", kind: "linkedin" },
       { label: "Contact Me", href: "mailto:ahmadsa06@gmail.com", kind: "email" },
     ] as ContactAction[],
