@@ -190,9 +190,27 @@ export const site = {
     eyebrow: "Portfolio",
     // Two grouped blocks, same card component for both. Order here = render order.
     products: {
-      title: { lead: "Products & ", highlight: "Platforms" } as Heading,
-      subtitle: "Full products and websites, built end to end.",
+      title: { lead: "Systems & ", highlight: "Products" } as Heading,
+      subtitle: "Business systems, automations, and products, built end to end.",
       items: [
+        {
+          title: "ERP Automation & Business Systems",
+          blurb:
+            "Current role: analyzing, designing, and automating business workflows inside a company ERP for a training and education organization, including collections, sales commissions, an AI-assisted influencer-tracking module linked to business intelligence, and product master-data unification.",
+          decision:
+            "Analyze the live system before building to avoid duplicating existing models, then implement and validate every automation on staging before production.",
+          status: "In progress: automations under validation on staging.",
+          tags: ["ERP", "Process Automation", "Business Intelligence", "Applied AI", "Roles & Permissions", "Data Quality"],
+        },
+        {
+          title: "Logistics Operations System",
+          blurb:
+            "Internal operations system for logistics companies, covering requests, roles, permissions, task assignment, HR, finance, fleet, operations, and a courier portal.",
+          decision: "Model real cross-department workflows instead of building a generic admin panel.",
+          status: "Functional staging system - pilot not launched.",
+          tags: ["SaaS", "Logistics", "Internal Tools", "Laravel", "PostgreSQL", "Role-Based Access", "Workflow Automation"],
+          href: "https://logistic.ahmedbahamat.com",
+        },
         {
           title: "Etad Hub",
           blurb:
@@ -212,6 +230,16 @@ export const site = {
           href: "https://etadhub.com/",
         },
         {
+          title: "Tarsya AI",
+          blurb:
+            "An AI-assisted prototype that turns structured tender and company inputs into draft technical and financial proposal content for Saudi government tenders.",
+          decision:
+            "Keep a human review and approval step in the workflow, since proposal content is trust-sensitive.",
+          status: "Working prototype - rebuilding for production.",
+          tags: ["Applied AI", "LLM Workflows", "Human-in-the-Loop", "GovTech", "Arabic"],
+          href: "https://system.tarsya.net",
+        },
+        {
           title: "Earab",
           blurb:
             "A mobile-first Arabic grammar learning platform with a progressive curriculum, varied exercises, instant feedback, full-sentence parsing, and gamified learning mechanics.",
@@ -228,15 +256,6 @@ export const site = {
             "Product Delivery",
           ],
           href: "https://www.earab.net/",
-        },
-        {
-          title: "Logistics Operations System",
-          blurb:
-            "Internal operations system for logistics companies, covering requests, roles, permissions, task assignment, HR, finance, fleet, operations, and a courier portal.",
-          decision: "Model real cross-department workflows instead of building a generic admin panel.",
-          status: "Functional staging system - pilot not launched.",
-          tags: ["SaaS", "Logistics", "Internal Tools", "Laravel", "PostgreSQL", "Role-Based Access", "Workflow Automation"],
-          href: "https://logistic.ahmedbahamat.com",
         },
         {
           title: "Fragrance Marketplace",
