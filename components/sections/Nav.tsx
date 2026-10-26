@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Download, Menu, X } from "lucide-react";
+import { Mail, Menu, X } from "lucide-react";
 import { site } from "@/content/site";
 import Button from "@/components/ui/Button";
 
@@ -44,8 +44,8 @@ export default function Nav() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Button href={site.nav.cta.href} download>
-            <Download className="h-[18px] w-[18px]" aria-hidden />
+          <Button href={site.nav.cta.href}>
+            <Mail className="h-[18px] w-[18px]" aria-hidden />
             <span className="max-lg:hidden">{site.nav.cta.label}</span>
           </Button>
           <button

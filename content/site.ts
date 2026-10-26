@@ -108,16 +108,16 @@ export const site = {
   brand: {
     name: "Ahmed Bahamat",
     domain: "ahmedbahamat.com",
-    tagline: "Product Manager & Technical Product Owner",
+    tagline: "AI & Business Systems Specialist",
   },
 
   seo: {
-    title: "Ahmed Bahamat | Product Manager, Technical Product Owner & AI-Native Builder",
+    title: "Ahmed Bahamat | AI & Business Systems Specialist",
     description:
-      "Ahmed Bahamat is a product manager, technical product owner, and AI-native builder who turns business and operational problems into working software.",
-    openGraphTitle: "Ahmed Bahamat | Product Manager, Technical Product Owner & AI-Native Builder",
+      "Ahmed Bahamat analyzes business operations, designs ERP workflows, and builds AI-assisted automations that turn operational problems into working systems.",
+    openGraphTitle: "Ahmed Bahamat | AI & Business Systems Specialist",
     openGraphDescription:
-      "Product manager, technical product owner, and AI-native builder building working software across logistics, EdTech, SaaS, marketplaces, and internal systems.",
+      "AI & business systems specialist: requirements analysis, ERP operations, and AI-assisted automation across logistics, EdTech, sales operations, and internal systems.",
   },
 
   nav: {
@@ -125,20 +125,20 @@ export const site = {
       { label: "Home", href: "#top" },
       { label: "About", href: "#about" },
       { label: "Skills", href: "#skills" },
-      { label: "Product Work", href: "#portfolio" },
+      { label: "Work", href: "#portfolio" },
       { label: "Contact", href: "#contact" },
     ] as NavLink[],
-    cta: { label: "Download CV", href: "/ahmed-bahamat-cv.pdf" },
+    cta: { label: "Get in touch", href: "#contact" },
   },
 
   hero: {
     eyebrow: "Welcome",
-    title: { lead: "Product Manager & ", highlight: "Technical Product Owner" } as Heading,
-    subtitle: "AI-native builder | SaaS | Marketplaces | Internal Systems",
+    title: { lead: "AI & ", highlight: "Business Systems", tail: " Specialist" } as Heading,
+    subtitle: "ERP Systems | Process Automation | Applied AI",
     sub:
-      "I’m a product manager and AI-native builder who turns business and operational problems into working software. I work across discovery, requirements, workflows, delivery, testing, and iteration, and I use AI-assisted development to build and validate products across logistics, EdTech, SaaS, marketplaces, and internal systems.",
-    primaryCta: { label: "View Product Work", href: "#portfolio" },
-    secondaryCta: { label: "Download CV", href: "/ahmed-bahamat-cv.pdf" },
+      "I analyze how a business actually runs, design the systems and workflows behind it, and build automations inside ERP platforms, using AI to move faster while keeping a human review step where accuracy matters. My background in product management and seven years in sales shape how I turn requirements into systems people actually use.",
+    primaryCta: { label: "View My Work", href: "#portfolio" },
+    secondaryCta: { label: "Get in touch", href: "#contact" },
     photo: {
       src: "/images/ahmed-bahamat.png",
       alt: "Portrait of Ahmed Salem Bahamat",
@@ -151,37 +151,37 @@ export const site = {
   socials,
 
   stats: [
-    { value: "10+", label: "Product initiatives" },
-    { value: "MVPs", label: "Functional MVPs & staging systems" },
-    { value: "5", label: "Domains: SaaS, logistics, marketplaces, EdTech, AI workflows" },
+    { value: "10+", label: "Systems & products built" },
+    { value: "30→2 min", label: "Daily reporting task automated (Etad Hub)" },
+    { value: "5", label: "Domains: ERP, logistics, sales ops, EdTech, AI workflows" },
   ] as Stat[],
 
   skills: {
     eyebrow: "My Skills",
     title: { lead: "How I ", highlight: "Work" } as Heading,
     lead:
-      "I combine product thinking with hands-on building. I frame the problem, write requirements, design workflows, make technical decisions with engineers, build or guide MVPs, and get products ready for testing and launch.",
-    cta: { label: "View Product Work", href: "#portfolio" },
+      "I take a process from idea to a running system: analyze the requirement, design the workflow and screens, build it on staging, test it as an end user, and support the team that uses it every day.",
+    cta: { label: "View My Work", href: "#portfolio" },
     cards: [
       {
         icon: "loop",
-        title: "Product Discovery",
-        body: "I clarify the user, business problem, workflow, constraints, and success criteria before building.",
+        title: "Requirements & Analysis",
+        body: "I break an idea into clear scope, workflows, diagrams, and initial screens that a team can approve and build.",
       },
       {
         icon: "ship",
-        title: "Product Delivery",
-        body: "I translate ideas into PRDs, user journeys, roles, permissions, MVP scope, and staged releases.",
+        title: "ERP & Operations",
+        body: "I run day-to-day ERP operations: users, roles and permissions, data quality, and first-line support for operational issues.",
       },
       {
         icon: "design",
-        title: "AI-Native Building",
-        body: "I build products that use AI (LLM workflows, RAG, human-in-the-loop), and I use AI tools daily to prototype, document, and ship faster.",
+        title: "Applied AI",
+        body: "I build LLM workflows with structured outputs and human review, and use AI tools daily to analyze, document, and build faster.",
       },
       {
         icon: "code",
-        title: "Technical Collaboration",
-        body: "I can discuss APIs, databases, authentication, access control, staging environments, and product trade-offs with developers and vendors.",
+        title: "Process Automation",
+        body: "I automate repetitive operational work such as reporting, collections, and commissions, validated on staging before release.",
       },
     ] as Skill[],
   },
@@ -289,11 +289,10 @@ export const site = {
 
   contact: {
     eyebrow: "Contact",
-    title: { lead: "Let's Discuss Product Roles or ", highlight: "Collaboration" } as Heading,
+    title: { lead: "Let's ", highlight: "Connect" } as Heading,
     lead:
-      "I'm open to Product Manager and Technical Product Owner roles in Riyadh, especially where product discovery, hands-on product building, SaaS, marketplaces, logistics, internal systems, or AI-enabled products matter.",
+      "Happy to talk about business systems, ERP workflows, process automation, and practical uses of AI in operations.",
     actions: [
-      { label: "Download CV", href: "/ahmed-bahamat-cv.pdf", kind: "cv" },
       { label: "Connect on LinkedIn", href: "https://www.linkedin.com/in/ahmed-bahamat", kind: "linkedin" },
       { label: "Contact Me", href: "mailto:ahmadsa06@gmail.com", kind: "email" },
     ] as ContactAction[],
@@ -306,8 +305,8 @@ export const site = {
       { name: "name", label: "Full name", type: "text", required: true, placeholder: "Your full name" },
       { name: "email", label: "Your email", type: "email", required: true, placeholder: "you@example.com" },
       { name: "phone", label: "Phone number", type: "tel", placeholder: "+966 5x xxx xxxx" },
-      { name: "opportunityType", label: "Context / Opportunity Type", type: "text", placeholder: "Role, collaboration, product idea, or project context" },
-      { name: "message", label: "Message", type: "textarea", required: true, placeholder: "Tell me about the role or collaboration", full: true },
+      { name: "opportunityType", label: "Topic", type: "text", placeholder: "What would you like to discuss?" },
+      { name: "message", label: "Message", type: "textarea", required: true, placeholder: "Your message", full: true },
     ] as FormField[],
     submitLabel: "Submit Message",
     // Formspree: create a free form at https://formspree.io, copy the endpoint
